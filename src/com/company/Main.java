@@ -16,13 +16,13 @@ public class Main {
             if (difficulty == 2) {
                 max = 100;
             }
-            if (difficulty == 3) {
+            else if (difficulty == 3) {
                 max = 1000;
             }
-            if (difficulty == 4) {
+            else if (difficulty == 4) {
                 max = 10000;
             }
-            if (difficulty > 4 || difficulty < 1) {
+            else {
                 System.out.print("Invalid Input, so you'll just play 1-10.\n");
             }
             System.out.print("Guess a number between " + min + " and " + max + ". \n");
@@ -48,16 +48,19 @@ public class Main {
             int difficulty = diffinput.nextInt();
             int guessmin = 1;
             int guessmax = 10;
-            if (difficulty == 2) {
+            if(difficulty == 1){
+                guessmin = 1;
+            }
+            else if (difficulty == 2) {
                 guessmax = 100;
             }
-            if (difficulty == 3) {
+            else if (difficulty == 3) {
                 guessmax = 1000;
             }
-            if (difficulty == 4) {
+            else if (difficulty == 4) {
                 guessmax = 10000;
             }
-            if (difficulty > 4 || difficulty < 1) {
+            else {
                 System.out.print("Invalid Input, so you'll just play 1-10.\n");
             }
             System.out.println("Think of a number between "+guessmin+" and "+guessmax+".");
@@ -65,7 +68,7 @@ public class Main {
             int randguess;
             while(answercorrect != 1) {
                 randguess = (int)(Math.random()*(guessmax-guessmin+1)+guessmin);
-                System.out.println("Ok my guess is "+randguess+". The range was from "+guessmin+" to "+guessmax);
+                System.out.println("Ok my guess is "+randguess+".");
                 System.out.println("Was it higher (h) or lower (l) or did I get it (c)?");
                 Scanner responses = new Scanner(System.in);
                 String response = responses.nextLine();
@@ -74,11 +77,11 @@ public class Main {
                     answercorrect = 1;
                 }
                 if (response.equals("h")) {
-                    guessmin = randguess;
+                    guessmin = randguess + 1;
 
                 }
                 if (response.equals("l")){
-                    guessmax = randguess;
+                    guessmax = randguess - 1;
                 }
 
             }
